@@ -195,3 +195,25 @@ h2{font-size:clamp(2rem,4.6vw,3.8rem)}h2 .it{font-size:1.08em}
 .trust-in{overflow:hidden}
 .mq{overflow:hidden}
 .mq-t .lg{opacity:1;background:#fff}
+
+/* v15 responsive hardening */
+.cpanel>*,.bento>*,.two>*,.fg>*,.cards>*{min-width:0}
+img,svg,video{max-width:100%}
+h1,h2,h3{overflow-wrap:break-word}
+.cd b{overflow-wrap:anywhere}
+.fb{overflow-wrap:anywhere}
+@media(max-width:620px){
+ .cpanel{padding:20px 16px;border-radius:28px}.cf{padding:20px 16px}
+ .hero-in{border-radius:28px;padding-left:20px;padding-right:20px}
+ .sec.soft{margin:0 8px;border-radius:24px}.ft{margin:8px;border-radius:28px}.hero,.trust{padding-left:8px;padding-right:8px}
+ .pill{font-size:.9rem}.row .pill,.row .ghost{flex:1 1 auto;justify-content:space-between}
+ .ghost{text-align:center}
+ .lg{width:130px;height:70px}
+ .tq{min-height:0}
+ .wa{right:14px;bottom:14px;width:50px;height:50px}
+}
+@media(max-width:360px){.hd{padding:10px 12px}.hd-in{padding-left:16px}.hero h1{font-size:2.3rem}.tri{grid-template-columns:1fr 1fr}h2{font-size:1.85rem}}
+@media(min-width:1600px){.ct,.hd-in{max-width:1400px}.hero-in{min-height:min(900px,calc(100vh - 24px))}}
+@media(max-height:560px) and (orientation:landscape){.hero-in{min-height:0;padding-top:100px}}
+@media(max-width:980px){.b.stats{min-height:0}}
+@media(max-width:400px){.cd b{font-size:.9rem}.cd{padding:12px}.ci{width:38px;height:38px}}
