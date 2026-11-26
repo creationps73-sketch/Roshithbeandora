@@ -218,3 +218,10 @@ h1,h2,h3{overflow-wrap:break-word}
 @media(max-width:980px){.b.stats{min-height:0}}
 @media(max-width:400px){.cd b{font-size:.9rem}.cd{padding:12px}.ci{width:38px;height:38px}}
 .fnote{font-size:.85rem;color:var(--mut);min-height:1.2em}
+
+#ok{position:fixed;inset:0;z-index:95;background:rgba(10,10,10,.6);backdrop-filter:blur(6px);display:none;place-items:center;padding:20px}
+#ok.open{display:grid;animation:okf .3s var(--ease)}
+.okb{background:#fff;border-radius:var(--r);padding:clamp(28px,4vw,44px);max-width:440px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;animation:okp .5s var(--ease)}
+.okc{width:68px;height:68px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center}.okc svg{width:34px;height:34px}
+.okb h3{font-size:1.6rem}.okb p{color:var(--mut);margin-bottom:8px}
+@keyframes okf{from{opacity:0}}@keyframes okp{from{opacity:0;transform:translateY(20px) scale(.96)}}

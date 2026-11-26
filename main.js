@@ -39,7 +39,22 @@
   $$('img[data-opt]').forEach(function(i){i.addEventListener('error',function(){i.remove()});if(i.complete&&!i.naturalWidth&&i.src)i.remove()});
 
   /* form */
-  var f=$('#cform');
-  if(f){f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f);var t='Hi Roshith, I’m '+d.get('name')+'.\nEmail: '+d.get('email')+'\nProject: '+(d.get('project')||'-')+'\n\n'+d.get('message');window.open('https://wa.me/'+RAW+'?text='+encodeURIComponent(t),'_blank');var n=$('#fnote');if(n)n.textContent='WhatsApp opened with your message \u2014 just press Send there to deliver it.'});
-  $('#mailBtn').addEventListener('click',function(){var d=new FormData(f);location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Project enquiry from '+(d.get('name')||''))+'&body='+encodeURIComponent((d.get('message')||'')+'\n\n'+(d.get('email')||''))});}
+  var CFG={phone:RAW,key:''}; /* CallMeBot API key goes here (see README) */
+  var f=$('#cform'),ok=$('#ok');
+  function popup(title,msg){$('#okt').textContent=title;$('#okp').textContent=msg;ok.classList.add('open');$('#okx').focus()}
+  if(ok){$('#okx').addEventListener('click',function(){ok.classList.remove('open')});ok.addEventListener('click',function(e){if(e.target===ok)ok.classList.remove('open')});addEventListener('keydown',function(e){if(e.key==='Escape')ok.classList.remove('open')})}
+  if(f){
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var d=new FormData(f),btn=f.querySelector('[type=submit]'),lab=$('span',btn),old=lab.textContent,name=d.get('name');
+      var t='New enquiry from your website\n\nName: '+name+'\nWhatsApp: '+d.get('phone')+'\nEmail: '+(d.get('email')||'-')+'\nProject: '+(d.get('project')||'-')+'\n\n'+d.get('message');
+      var good='Thank you, '+name+'. Roshith has received your message and will reply to you on WhatsApp ('+d.get('phone')+') shortly.';
+      function fallback(){window.open('https://wa.me/'+RAW+'?text='+encodeURIComponent(t),'_blank');popup('Almost there','WhatsApp opened with your message \u2014 press Send there to deliver it to Roshith.')}
+      function sent(){f.reset();popup('Message sent!',good)}
+      if(!CFG.key){fallback();return}
+      btn.disabled=true;lab.textContent='Sending\u2026';
+      fetch('https://api.callmebot.com/whatsapp.php?phone='+CFG.phone+'&text='+encodeURIComponent(t)+'&apikey='+CFG.key,{mode:'no-cors'})
+        .then(sent,fallback).then(function(){btn.disabled=false;lab.textContent=old});
+    });
+    var mb=$('#mailBtn');if(mb)mb.addEventListener('click',function(){var d=new FormData(f);location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Project enquiry from '+(d.get('name')||''))+'&body='+encodeURIComponent((d.get('message')||'')+'\n\nWhatsApp: '+(d.get('phone')||'')+'\n'+(d.get('email')||''))});
+  }
 })();
