@@ -40,6 +40,6 @@
 
   /* form */
   var f=$('#cform');
-  if(f){f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f);var t='Hi Roshith, I’m '+d.get('name')+'.\nEmail: '+d.get('email')+'\nProject: '+(d.get('project')||'-')+'\n\n'+d.get('message');window.open('https://wa.me/'+RAW+'?text='+encodeURIComponent(t),'_blank')});
+  if(f){f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f);var t='Hi Roshith, I’m '+d.get('name')+'.\nEmail: '+d.get('email')+'\nProject: '+(d.get('project')||'-')+'\n\n'+d.get('message');window.open('https://wa.me/'+RAW+'?text='+encodeURIComponent(t),'_blank');var n=$('#fnote');if(n)n.textContent='WhatsApp opened with your message \u2014 just press Send there to deliver it.'});
   $('#mailBtn').addEventListener('click',function(){var d=new FormData(f);location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Project enquiry from '+(d.get('name')||''))+'&body='+encodeURIComponent((d.get('message')||'')+'\n\n'+(d.get('email')||''))});}
 })();
