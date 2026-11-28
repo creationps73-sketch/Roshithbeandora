@@ -244,3 +244,18 @@ h1,h2,h3{overflow-wrap:break-word}
 .plr{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);font-size:clamp(1rem,1.4vw,1.2rem)}
 .plr:last-child{border:0}.plr span{font-weight:500}.plr i{flex:1;border-bottom:1px dashed #d0cdc6;transform:translateY(-4px)}.plr b{font-weight:600;white-space:nowrap}
 @media(max-width:900px){.pks{grid-template-columns:1fr}}
+
+/* quote */
+.qw{max-width:760px}.qsteps{display:flex;gap:8px;margin-bottom:26px}.qsteps span{font-size:.8rem;font-weight:600;padding:8px 16px;border-radius:99px;background:#fff;border:1px solid var(--line);color:var(--mut)}.qsteps span.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.qw h2{font-size:clamp(2rem,4.5vw,3.2rem)}.qw [hidden]{display:none!important}
+.qh{font-size:.8rem;font-weight:600;color:var(--mut);margin:6px 0 2px}
+.qlist{display:flex;flex-direction:column;gap:8px}
+.cf label.qi{flex-direction:row;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--soft);cursor:pointer;font-size:.95rem;font-weight:500;color:var(--ink);transition:.25s}
+.cf label.qi:has(input:checked){border-color:var(--ink);background:#fff}
+.cf .qi input{width:18px;height:18px;padding:0;accent-color:var(--acc);flex:none}.qi span{flex:1;min-width:0}.qi b{font-weight:600;white-space:nowrap;font-size:.9rem}
+.qdoc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,44px);border-top:6px solid var(--acc)}
+.qtop{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}.qb{font-size:1.5rem;display:block}.qdoc small{color:var(--mut);display:block;font-size:.8rem}.qm{text-align:right}
+.qto{display:flex;flex-direction:column;gap:3px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:10px;overflow-wrap:anywhere}.qto b{font-size:1.15rem}.qto span{color:var(--mut);font-size:.92rem}
+.qr{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}.qr b{white-space:nowrap}
+.qt{display:flex;justify-content:space-between;gap:16px;padding:20px 0 6px;font-size:1.2rem}.qt b{color:var(--acc);font-size:1.5rem}.qn{color:var(--mut);font-size:.82rem;margin-top:14px}
+@media print{body *{visibility:hidden}.qdoc,.qdoc *{visibility:visible}.qdoc{position:absolute;left:0;top:0;width:100%;border:0}}

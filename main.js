@@ -39,7 +39,7 @@
   $$('img[data-opt]').forEach(function(i){i.addEventListener('error',function(){i.remove()});if(i.complete&&!i.naturalWidth&&i.src)i.remove()});
 
   /* form */
-  var CFG={phone:RAW,key:''}; /* CallMeBot API key goes here (see README) */
+  var CFG={phone:RAW,key:''};window.BR=CFG; /* CallMeBot API key goes here (see README) */
   var f=$('#cform'),ok=$('#ok');
   function popup(title,msg){$('#okt').textContent=title;$('#okp').textContent=msg;ok.classList.add('open');$('#okx').focus()}
   if(ok){$('#okx').addEventListener('click',function(){ok.classList.remove('open')});ok.addEventListener('click',function(e){if(e.target===ok)ok.classList.remove('open')});addEventListener('keydown',function(e){if(e.key==='Escape')ok.classList.remove('open')})}
